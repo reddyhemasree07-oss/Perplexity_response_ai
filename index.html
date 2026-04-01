@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perplexity</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1 class="brand-title">perplexity</h1>
+        </header>
+
+        <main>
+            <!-- Chat History Area -->
+            <div id="messages-container" class="messages-container hidden"></div>
+
+            <!-- File Status Badge Area -->
+            <div id="file-status-area"></div>
+
+            <!-- Loading Spinner -->
+            <div id="loader" class="loader hidden"></div>
+
+            <div class="search-section">
+                <!-- Search Box -->
+                <div class="search-box-container">
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Ask anything..." id="search-input" autocomplete="off">
+                    </div>
+                    <div class="search-actions">
+                        <div class="left-actions">
+                            <button class="action-btn icon-only" id="upload-btn" title="Upload PDF">
+                                <i data-lucide="plus"></i>
+                            </button>
+                            <button class="action-btn computer-btn">
+                                <i data-lucide="monitor" class="icon-sm"></i>
+                                <span>Computer</span>
+                            </button>
+                        </div>
+                        <div class="spacer"></div>
+                        <div class="right-actions">
+                            <button class="action-btn text-btn">
+                                <span>Model</span>
+                                <i data-lucide="chevron-down" class="icon-sm"></i>
+                            </button>
+                            <button class="action-btn icon-only">
+                                <i data-lucide="mic"></i>
+                            </button>
+                            <button class="submit-btn" id="submit-btn">
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suggestions Panel -->
+                <div class="suggestions-container">
+                    <div class="suggestions-header">
+                        <i data-lucide="monitor" class="icon-sm text-dim"></i>
+                        <span>Try Computer</span>
+                    </div>
+
+                    <div class="category-tabs">
+                        <button class="tab active" data-category="monitor">
+                            <i data-lucide="target" class="icon-xs"></i>
+                            <span>Monitor the situation</span>
+                        </button>
+                        <button class="tab" data-category="organise">
+                            <i data-lucide="list-todo" class="icon-xs"></i>
+                            <span>Organise my life</span>
+                        </button>
+                        <button class="tab" data-category="prototype">
+                            <i data-lucide="code-2" class="icon-xs"></i>
+                            <span>Create a prototype</span>
+                        </button>
+                    </div>
+
+                    <div class="suggestions-list" id="suggestions-list"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Hidden file input for PDF upload -->
+    <input type="file" id="file-upload" accept=".pdf" style="display:none">
+
+    <script src="/static/main.js"></script>
+</body>
+</html>
